@@ -20,6 +20,10 @@ if(!isset($_SESSION['secured'])) {
 		$m = $row['surname']." ".$row['firstname'];
 		$x = "08116014616";
         $j = date("h:i:a");
+		$i = $row['staffid'];
+		$a = $row['active'];
+		$n = date("Y-m-d");
+		$t = date("m");
 	}
 
 	
@@ -47,7 +51,13 @@ if(!isset($_SESSION['secured'])) {
 		$sl = "UPDATE staff set `active` = '1' WHERE `qrid` = '$data'";
 		$re = mysqli_query($con, $sl);
 
-				// notification message
+
+		//update attendance record
+		$attend = "INSERT into staffattend(`staffid`, `name`, `timein`, `date`, `month`, `qrid`)";
+		$attend .= "VALUES('$i', '$m', '$j', '$n', '$t', '$data')";
+		$atsss  = mysqli_query($con, $attend);
+
+		// notification message
 		echo '
 
 			<!DOCTYPE html>
@@ -131,6 +141,10 @@ if(!isset($_SESSION['secured'])) {
 		
 		$l = "UPDATE staff set `active` = '0' WHERE `qrid` = '$data'";
 		$e = mysqli_query($con, $l);
+
+		//update attendance record
+		$atn = "UPDATE staffattend set `timeout` = '$j' WHERE `qrid` = '$data'";
+		$ats = mysqli_query($con, $sl);
 
 		// notification message
 		echo '
