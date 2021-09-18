@@ -51,6 +51,74 @@ DELIMITER;
 }
 
 
+
+
+function staffattend() {
+
+	$errors = [];
+
+	
+
+	if(isset($_POST['submit'])) {
+
+			$password   	 = md5($_POST['password']);
+			$idd  	 		 = $_POST['iddler'];
+
+			if(!empty($errors)) {
+
+				foreach ($errors as $error) {
+			
+	                echo validation_errors($error); 
+
+				}
+
+			} else {
+
+				if(log_user($password)) {
+					$_SESSION['secured'] = $password;
+					header("location: ./seen?id=$idd");
+
+				} else {
+
+					echo validation_errors("Wrong Password");
+				}
+			} 
+
+		}
+
+} //function
+
+
+/************************ user login functions**********/
+
+function log_user($password) {
+
+$sql = "SELECT `identifier` FROM `security`";
+$result = query($sql);
+if(row_count($result) == 1) {
+	$row = mysqli_fetch_array($result);
+
+	$user_password = $row['identifier'];
+
+	if($password == $user_password) {
+
+		$_SESSION['secured'] = $password;
+
+		return true;
+	} else {
+		return false;
+	}
+
+	return true;
+} else {
+
+	return false;
+}
+
+} //end of function 
+
+
+
 /************************validate user login functions**********/
 
 function validate_user_login() {

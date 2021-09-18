@@ -13,13 +13,12 @@ if(!isset($_SESSION['secured'])) {
 		$data = $_GET['id'];
 	}
 
-	$cons = mysqli_query($con,"SELECT * from `students` WHERE `qrid` = '$data'");
+	$cons = mysqli_query($con,"SELECT * from `staff` WHERE `qrid` = '$data'");
 	while ($row = mysqli_fetch_array($cons)) {
 	    $z = $row['qrid'];
 		$y = date("a");
-		$r = $row['parent'];
-		$m = $row['Middle Name'];
-		$x = $row['Telephone1']." ".$row['Telephone2'];
+		$m = $row['surname']." ".$row['firstname'];
+		$x = "08116014616";
         $j = date("h:i:a");
 	}
 
@@ -33,7 +32,7 @@ if(!isset($_SESSION['secured'])) {
 
 		$a = urlencode('Greatnessabolade@outlook.com'); //Note: urlencodemust be added forusernameand
 		$b = urlencode('securemelikekilode'); // passwordas encryption code for security purpose.
-		$c = "Dear parent , Your child - ".$m." resumed school ".$j." Thank you!";
+		$c = "Hello sir , ".$m." resumed school ".$j." Thank you!";
 		$d = "Paradise";
 		$e = $x;
 		$url = "https://portal.nigeriabulksms.com/api/?username=".$a."&password=".$b."&message=".$c."&sender=".$d."&mobiles=".$e;
@@ -45,7 +44,7 @@ if(!isset($_SESSION['secured'])) {
 		curl_setopt($ch, CURLOPT_HEADER, 0);
 		$resp = curl_exec($ch);
 		
-		$sl = "UPDATE students set `Active` = '1' WHERE `qrid` = '$data'";
+		$sl = "UPDATE staff set `active` = '1' WHERE `qrid` = '$data'";
 		$re = mysqli_query($con, $sl);
 
 				// notification message
@@ -56,7 +55,7 @@ if(!isset($_SESSION['secured'])) {
 		<head>
 		  <meta charset="utf-8">
 		  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-		  <title> Paradise Model School | Student Portal</title>
+		  <title> Paradise Model School | Staff Portal</title>
 		  <!-- Tell the browser to be responsive to screen width -->
 		  <meta name="viewport" content="width=device-width, initial-scale=1">
 		  <meta name="description" content="Paradise Model School">
@@ -78,7 +77,7 @@ if(!isset($_SESSION['secured'])) {
 		    <a href="https://paradisemodelschool.com.ng"><b>Paradise Model School</b></a>
 		  </div>
 		  <!-- User name -->
-		  <div class="lockscreen-name">Child now in School.</div>
+		  <div class="lockscreen-name">Staff now in school.</div>
 		  <!-- START LOCK SCREEN ITEM -->
 		  <div class="lockscreen-item">
 		    <!-- lockscreen image -->
@@ -119,7 +118,7 @@ if(!isset($_SESSION['secured'])) {
 
 		$a = urlencode('Greatnessabolade@outlook.com'); //Note: urlencodemust be added forusernameand
 		$b = urlencode('securemelikekilode'); // passwordas encryption code for security purpose.
-		$c = "Dear parent, Your child - ".$m." left the school at ".$j.". Please inspect the assignment(s) given. Thank you!";
+		$c = "Hello sir , ".$m." left the school ".$j." Thank you!";
 		$d = "Paradise";
 		$e = $x;
 		$url = "https://portal.nigeriabulksms.com/api/?username=".$a."&password=".$b."&message=".$c."&sender=".$d."&mobiles=".$e;
@@ -130,7 +129,7 @@ if(!isset($_SESSION['secured'])) {
 		curl_setopt($ch, CURLOPT_HEADER, 0);
 		$resp = curl_exec($ch);
 		
-		$l = "UPDATE students set `Active` = '0' WHERE `qrid` = '$data'";
+		$l = "UPDATE staff set `active` = '0' WHERE `qrid` = '$data'";
 		$e = mysqli_query($con, $l);
 
 		// notification message
@@ -141,7 +140,7 @@ if(!isset($_SESSION['secured'])) {
 		<head>
 		  <meta charset="utf-8">
 		  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-		  <title>Paradise Model School | Student Portal</title>
+		  <title>Paradise Model School | Staff Portal</title>
 		  <!-- Tell the browser to be responsive to screen width -->
 		  <meta name="viewport" content="width=device-width, initial-scale=1">
 		  <meta name="description" content="Paradise Model School">
@@ -163,7 +162,7 @@ if(!isset($_SESSION['secured'])) {
 		    <a href="https://paradisemodelschool.com.ng"><b>Paradise Model School</b></a>
 		  </div>
 		  <!-- User name -->
-		  <div class="lockscreen-name">Child now out of school.</div>
+		  <div class="lockscreen-name">Staff now out of school.</div>
 		  <!-- START LOCK SCREEN ITEM -->
 		  <div class="lockscreen-item">
 		    <!-- lockscreen image -->
