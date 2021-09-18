@@ -1,7 +1,7 @@
 <?php
 //creating the database to use
 //$con = mysqli_connect("localhost","root","","sms");
-$con = mysqli_connect("localhost","paradi12_user","securemelikekilode","paradi12_paradise_school_cms");
+$con = mysqli_connect("localhost","paradi12_users","securemelikekilode","paradi12_scms");
 
 function row_count($result) {
 
