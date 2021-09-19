@@ -144,7 +144,7 @@ if(!isset($_SESSION['secured'])) {
 
 		//update attendance record
 		$atn = "UPDATE staffattend set `timeout` = '$j' WHERE `qrid` = '$data'";
-		$ats = mysqli_query($con, $sl);
+		$ats = mysqli_query($con, $atn);
 
 		// notification message
 		echo '
