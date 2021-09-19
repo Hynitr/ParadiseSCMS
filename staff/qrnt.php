@@ -37,7 +37,7 @@ if(!isset($_GET['id'])) {
         </div>
         <!-- User name -->
         <div class="lockscreen-name">Input Security Code</div>
-        <?php validate_user_login() ?>
+        <?php staffattend() ?>
         <!-- START LOCK SCREEN ITEM -->
         <div class="lockscreen-item">
             <!-- lockscreen image -->
