@@ -20,7 +20,7 @@ if(!isset($_SESSION['secured'])) {
 		$r = $row['parent'];
 		$m = $row['Middle Name'];
 		$x = $row['Telephone1']." ".$row['Telephone2'];
-        $j = date("h:i:a");
+        $j = date("h:ia");
 	}
 
 	

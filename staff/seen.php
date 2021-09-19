@@ -19,7 +19,7 @@ if(!isset($_SESSION['secured'])) {
 		$y = date("a");
 		$m = $row['surname']." ".$row['firstname'];
 		$x = "08116014616";
-        $j = date("h:i:a");
+        $j = date("h:ia");
 		$i = $row['staffid'];
 		$a = $row['active'];
 		$n = date("Y-m-d");
