@@ -187,7 +187,7 @@ $result = query($sql2);
  $_SESSION['code'] = $code;
 
  echo 'Loading.. Please wait';	
- //echo '<script>window.location.href ="./enrollupload?id='.$code.'"</script>';
+ echo '<script>window.location.href ="./enrollupload?id='.$code.'"</script>';
 }
 
 
@@ -442,6 +442,17 @@ function appoint($title, $surname, $firstname, $lastname, $date, $month, $year, 
 
 
 	$datereg = date("Y-m-d h:i:sa");
+
+	if($bsm == '') {
+		$bsm = 0;
+	} 
+	if($tam == '') {
+		$tam = 0;
+	}
+	if($mall == ''){
+		$mall = 0;
+	}
+	
 	$gross   = $bsm + $tam + $mall;
 
 
