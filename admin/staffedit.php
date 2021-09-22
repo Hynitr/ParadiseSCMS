@@ -51,6 +51,7 @@ if (!isset($_GET['id'])) {
                                 <div class="form-group">
                                     <label>Title.:</label>
                                     <select name="title" id="title" class="custom-select">
+                                        <option name="title" id="title"><?php echo $row['title'] ?></option>
                                         <option name="title" id="title">Mr.</option>
                                         <option name="title" id="title">Mrs.</option>
                                         <option name="title" id="title">Miss</option>
