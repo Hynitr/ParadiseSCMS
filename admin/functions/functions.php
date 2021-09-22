@@ -653,6 +653,10 @@ if (isset($_POST['delstf'])) {
 
 	$ssl  = "SELECT * from staff WHERE `staffid`= '$adm'";
 	$cons = query($ssl);
+	if(row_count($cons) == 0) {
+		
+		echo "Invalid Staff ID";
+	} else {
 	$row = mysqli_fetch_array($cons);
 	$x = $row['passport'];	
 
@@ -677,7 +681,7 @@ if (isset($_POST['delstf'])) {
 	$_SESSION['del']  = "Staff Deleted Successfully";
 	echo '<script>window.location.href ="./delstaff"</script>';
 }
-
+}
 
 
 //--------------- send parent sms ---------------//
