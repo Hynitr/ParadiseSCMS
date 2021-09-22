@@ -127,6 +127,18 @@ while($row= mysqli_fetch_array($result_set))
 $sql2= "SELECT * FROM `score` WHERE `admno` = '$data' AND `subject` = '$frd'";
 $result_set2=query($sql2);
 $row2= mysqli_fetch_array($result_set2);
+
+if($tms == ""){
+$annual = $row2['fscore'];
+} else {
+if($tms == "") {
+$annual = ($row2['fscore'] + $row2['sndscore']) / 2;
+}else {
+if($tms == "") {
+  $annual = ($row2['fscore'] + $row2['sndscore'] + $row2['tscore']) / 3  
+}
+}
+}
 ?>
         <tr>
             <td><?php echo ucwords($row['subject']); ?></td>
@@ -138,7 +150,7 @@ $row2= mysqli_fetch_array($result_set2);
             <td><?php echo $row2['fscore'] ?></td>
             <td><?php echo $row2['sndscore'] ?></td>
             <td><?php echo $row2['tscore'] ?></td>
-            <td><?php echo $row2['fscore'] + $row2['sndscore'] + $row2['tscore'] ?></td>
+            <td><?php echo $annual ?></td>
             <td><?php echo $row['position'] ?></td>
             <td><?php echo $row['grade'] ?></td>
             <td><?php echo $row['remark'] ?></td>
