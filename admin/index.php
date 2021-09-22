@@ -206,7 +206,6 @@ include("functions/top.php");
                         <div class="card-body">
                             <p><?php echo date("d-m-y") ?></p>
                             <p><?php echo $row['title'] ?></p>
-                            </a>
                             <div>
                                 <a href="#"><?php echo $row['surname'] ?> <?php echo $row['firstname'] ?></a>
                                 <p>Staff_ID.: <b><?php echo $row['staffid'] ?></b><br />
@@ -214,14 +213,15 @@ include("functions/top.php");
                                     Telephone.: <b><?php echo $row['tel1'].", ".$row['tel2']; ?></b><br />
                                     Gender.: <b><?php echo $row['gender'] ?> </b><br />
                                 </p>
-                                <?php
-            }
-            ?>
+
                                 <!-- /.card-body -->
                             </div>
+
                             <!-- /.card -->
                         </div>
-
+                        <?php
+            }
+            ?>
                     </div>
                     <!-- /.row (main row) -->
 
