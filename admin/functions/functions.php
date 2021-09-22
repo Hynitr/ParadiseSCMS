@@ -677,7 +677,6 @@ if (isset($_POST['delstf'])) {
 	unlink("../upload/staffDP/$x");	
 
 	echo 'Loading.. Please wait';
-	echo "Staff Deleted successfully!";
 	$_SESSION['del']  = "Staff Deleted Successfully";
 	echo '<script>window.location.href ="./delstaff"</script>';
 }
