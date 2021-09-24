@@ -128,13 +128,13 @@ $sql2= "SELECT * FROM `score` WHERE `admno` = '$data' AND `subject` = '$frd'";
 $result_set2=query($sql2);
 $row2= mysqli_fetch_array($result_set2);
 
-if($tms == ""){
+if($tms == "1st Term"){
 $annual = $row2['fscore'];
 } else {
-if($tms == "") {
+if($tms == "2nd Term") {
 $annual = ($row2['fscore'] + $row2['sndscore']) / 2;
 }else {
-if($tms == "") {
+if($tms == "3rd Term") {
   $annual = ($row2['fscore'] + $row2['sndscore'] + $row2['tscore']) / 3;  
 }
 }
