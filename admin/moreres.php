@@ -135,7 +135,7 @@ if($tms == "") {
 $annual = ($row2['fscore'] + $row2['sndscore']) / 2;
 }else {
 if($tms == "") {
-  $annual = ($row2['fscore'] + $row2['sndscore'] + $row2['tscore']) / 3  
+  $annual = ($row2['fscore'] + $row2['sndscore'] + $row2['tscore']) / 3;  
 }
 }
 }
