@@ -777,10 +777,15 @@ function birthday_alert() {
 	$r = date("d");
 	$s = date("m");
 	
-	$sql="SELECT * FROM students WHERE `Date`= '$r' AND `Month` = '$s' AND `bday` = '0' OR `bday` = ''";
+	$sql="SELECT * FROM students WHERE `bday` = '0' OR `bday` = ''";
 	$result_set=query($sql);
 	while($row= mysqli_fetch_array($result_set))
 	{
+		$h = $row['Date'];
+		$g = $row['Month'];
+	
+		if($h == $r && $s == $g) {
+			
 		$admno = $row['AdminID'];
 	
 	   //update table bday
@@ -816,7 +821,9 @@ function birthday_alert() {
 	
 	
 	}	
-	
+	} else {
+		
+	}
 	}
 	}
 	
@@ -831,6 +838,11 @@ function birthday_alert() {
 		$result_set=query($sql);
 		while($row= mysqli_fetch_array($result_set))
 		{
+	
+			$h = $row['date'];
+			$g = $row['month'];
+		
+			if($h == $r && $s == $g) {
 	
 			$admno = $row['staffid'];
 	
@@ -868,8 +880,10 @@ function birthday_alert() {
 	
 	}	
 		
+		} else {
+			
 		}
-		
+		}	
 			
 		}
 ?>

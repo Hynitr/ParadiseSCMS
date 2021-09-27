@@ -864,6 +864,11 @@ function staffbday() {
 	while($row= mysqli_fetch_array($result_set))
 	{
 
+		$h = $row['date'];
+		$g = $row['month'];
+	
+		if($h == $r && $s == $g) {
+
 		$admno = $row['staffid'];
 
    //update table bday
@@ -900,8 +905,10 @@ if($errc == 150) {
 
 }	
 	
+	} else {
+		
 	}
-	
+	}	
 		
 	}
 ?>
