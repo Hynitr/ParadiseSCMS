@@ -1039,10 +1039,8 @@ protected function _dochecks()
 	// Check mbstring overloading
 	if(ini_get('mbstring.func_overload') & 2)
 		$this->Error('mbstring overloading must be disabled');
-		
 	// Ensure runtime magic quotes are disabled
-	//use get_magic_quotes_runtime() for php version 5
-	if(ini_set('magic_quotes_runtime', 0))
+	if(get_magic_quotes_runtime())
 		@set_magic_quotes_runtime(0);
 }
 
@@ -1239,8 +1237,7 @@ protected function _dounderline($x, $y, $txt)
 protected function _parsejpg($file)
 {
 	// Extract info from a JPEG file
-	$a = get_magic_quotes_runtime($file);
-	//$a = getimagesize($file);
+	$a = getimagesize($file);
 	if(!$a)
 		$this->Error('Missing or incorrect image file: '.$file);
 	if($a[2]!=2)
