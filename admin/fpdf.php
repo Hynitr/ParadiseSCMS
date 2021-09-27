@@ -1239,7 +1239,8 @@ protected function _dounderline($x, $y, $txt)
 protected function _parsejpg($file)
 {
 	// Extract info from a JPEG file
-	$a = getimagesize($file);
+	$a = get_magic_quotes_runtime($file);
+	//$a = getimagesize($file);
 	if(!$a)
 		$this->Error('Missing or incorrect image file: '.$file);
 	if($a[2]!=2)
