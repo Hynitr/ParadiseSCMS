@@ -859,7 +859,7 @@ function staffbday() {
 	$r = date("d");
 	$s = date("m");
 	
-	$sql="SELECT * FROM staff WHERE `date`= '$r' AND `month` = '$s' AND `bday` = '0' OR `bday` = ''";
+	$sql="SELECT * FROM staff WHERE `bday` = '0' OR `bday` = ''";
 	$result_set=query($sql);
 	while($row= mysqli_fetch_array($result_set))
 	{
