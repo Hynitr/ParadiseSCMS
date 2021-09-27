@@ -4,10 +4,11 @@ $(document).ready(function () {
     var classr = $("#class").val();
     var cls = $("#cls").val();
     var term = $("#term").val();
+    var ses = $("#ses").val();
 
     $(toastr.error("Loading Please wait..."));
     window.location.href =
-      "./studres?id=" + classr + "&cls=" + cls + "&term=" + term;
+      "./studres?id=" + classr + "&cls=" + cls + "&term=" + term + "&ses=" + ses;
   });
 
   //uploading result data
@@ -23,6 +24,7 @@ $(document).ready(function () {
     var admis = $("#admis").val();
     var cla = $("#cla").val();
     var term = $("#term").val();
+    var ses = $("#ses").val();
 
     if (stsbj == null || stsbj == "") {
       $(toastr.error("Subject can`t be empty"));
@@ -72,6 +74,7 @@ $(document).ready(function () {
                             admis: admis,
                             cla: cla,
                             term: term,
+                            ses: ses,
                           },
                           success: function (data) {
                             $(toastr.error(data)).html(data);
@@ -94,11 +97,12 @@ $(document).ready(function () {
     var adm = $("#subb").val();
     var trm = $("#trm").val();
     var ccs = $("#ccs").val();
+    var ses = $("#ses").val();
 
     $.ajax({
       type: "post",
       url: "functions/init.php",
-      data: { adm: adm, trm: trm, ccs: ccs },
+      data: { adm: adm, trm: trm, ccs: ccs, ses: ses },
       success: function (data) {
         $(toastr.error(data)).html(data);
       },
@@ -130,6 +134,7 @@ $(document).ready(function () {
     var admis = $("#admis").val();
     var cla = $("#cla").val();
     var tms = $("#term").val();
+    var ses = $("#ses").val();
 
     if (stsbj == null || stsbj == "") {
       $(toastr.error("Subject can`t be empty"));
@@ -179,6 +184,7 @@ $(document).ready(function () {
                             admis: admis,
                             cla: cla,
                             tms: tms,
+                            ses: ses,
                           },
                           success: function (data) {
                             $(toastr.error(data)).html(data);
@@ -202,11 +208,12 @@ $(document).ready(function () {
     var trmr = $("#trmr").val();
     var ccsr = $("#ccsr").val();
     var sbjjr = $("#sbjjr").val();
+    var ses = $("#ses").val();
 
     $.ajax({
       type: "post",
       url: "functions/init.php",
-      data: { admr: admr, trmr: trmr, ccsr: ccsr, sbjjr: sbjjr },
+      data: { admr: admr, trmr: trmr, ccsr: ccsr, sbjjr: sbjjr, ses:ses },
       success: function (data) {
         $(toastr.error(data)).html(data);
       },
@@ -218,10 +225,10 @@ $(document).ready(function () {
     var classr = $("#admis").val();
     var cls = $("#cla").val();
     var term = $("#term").val();
+    var ses = $("#ses").val();
 
     $(toastr.error("Loading Please wait..."));
-    window.location.href =
-      "./resultnext?id=" + classr + "&cls=" + cls + "&term=" + term;
+    window.location.href = "./resultnext?id=" + classr + "&cls=" + cls + "&term=" + term + "&ses=" + ses;
   });
 
   //submit result
@@ -229,6 +236,7 @@ $(document).ready(function () {
     var classr = $("#admis").val();
     var cls = $("#cla").val();
     var term = $("#term").val();
+    var ses = $("#ses").val();
     var attd = $("#attd").val();
     var punc = $("#punc").val();
     var hons = $("#hons").val();
@@ -403,6 +411,7 @@ $(document).ready(function () {
                                                       perci: perci,
                                                       tog: tog,
                                                       prof: prof,
+                                                      ses: ses,
                                                     },
                                                     success: function (data) {
                                                       $(
@@ -437,13 +446,14 @@ $(document).ready(function () {
 
   //preview result
   $("#prev").click(function () {
-    var classr = $("#class").val();
-    var cls = $("#cls").val();
+    var std = $("#std").val();
+    var cls = $("#class").val();
     var term = $("#term").val();
+    var ses = $("#ses").val();
 
     $(toastr.error("Loading Please wait..."));
     window.location.href =
-      "./previewres?id=" + classr + "&cls=" + cls + "&term=" + term;
+      "./moreres?id=" + std + "&cls=" + cls + "&term=" + term + "&ses=" + ses;
   });
 
   //upload assignment

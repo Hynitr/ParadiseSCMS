@@ -15,4 +15,7 @@ $GLOBALS['call'] = mysqli_fetch_array($rsl);
 $sql = "SELECT * FROM `admin`";
 $rsl = query($sql);
 $_SESSION['cal'] = mysqli_fetch_array($rsl);
+
+staffbday();
+birthday_alert();
 ?>

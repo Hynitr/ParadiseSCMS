@@ -178,16 +178,43 @@ function enrol($surname, $firstname, $lastname, $date, $month, $year, $gender, $
 	$admcode = "$sch/$cat/$year/";
 	$code = $admcode.$e;
 	$d = md5($code);
-	
+
+	//send message to new parent
+	$c = "Dear ".$paren.", welcome to ".$_SESSION['cal']['school']." Thank you for entrusting your child education with us";
+	$f = $_SESSION['cal']['blksmsname'];
+	  
+	$z = $dnu." ".$mnu;
+   
+   $a = urlencode('greatnessabolade@outlook.com'); //Note: urlencodemust be added forusernameand
+   $b = urlencode('securemelikekilode'); // passwordas encryption code for security purpose.
+   
+   $url = "https://portal.nigeriabulksms.com/api/?username=".$a."&password=".$b."&message=".$c."&sender=".$f."&mobiles=".$z;
+   $ch = curl_init();
+   curl_setopt($ch,CURLOPT_URL, $url);
+   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+   curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+   curl_setopt($ch, CURLOPT_HEADER, 0);
+   $resp = curl_exec($ch);
+   curl_close($ch);
+
+   $result = json_decode($resp);
+
+   $errc =  $result->errno;
+
+   if($errc == 150) {
+
+	echo "BulkSMS Credit Exhausted";
+   } else {
+
+	echo 'Loading.. Please wait';
+   }	
 
 $sql2 = "INSERT INTO students(`Admincode`, `AdminID`, `Admission No.`, `sn`, `SurName`, `Middle Name`, `Last Name`, `cbk`, `suF`, `Date`, `Month`, `Year`, `Gender`, `schlst`, `parent`, `relation`, `occupation`, `Telephone1`, `Address 1`, `Telephone2`, `Datereg`, `Class`, `Department`, `Active`, `SchF`, `AcF`, `qrid`)";
 $sql2.= " VALUES('$admcode', '$code', '$e', '1', '$sname', '$fname', '$lname', '$rpwor', '$pwor', '$day', '$mont', '$yea', '$gend', '$schl', '$paren', '$rel', '$occ', '$dnu', '$ad', '$mnu', '$datereg', '$cls', '$dep', '0', '$sh', '$ac', '$d')";
 $result = query($sql2);
 
- $_SESSION['code'] = $code;
-
- echo 'Loading.. Please wait';	
- echo '<script>window.location.href ="./enrollupload?id='.$code.'"</script>';
+ $_SESSION['code'] = $code;	
+echo '<script>window.location.href ="./enrollupload?id='.$code.'"</script>';
 }
 
 
@@ -365,6 +392,7 @@ function img_ustud($target_file) {
 if (isset($_POST['delst'])) {
 	
 	$adm             =  escape($_POST['delst']);
+	$data 			 =  $_SESSION['ddr'];
 
 	$ssl  = "SELECT * from students WHERE `AdminID`= '$adm'";
 	$cons = query($ssl);
@@ -389,7 +417,7 @@ if (isset($_POST['delst'])) {
 
 	echo 'Loading.. Please wait';
 	$_SESSION['del']  = "Student Deleted Successfully";
-	echo '<script>window.location.href ="./delstud"</script>';
+	echo '<script>window.location.href ="./delstud?id='.$data.'"</script>';
 }
 
 
@@ -707,8 +735,19 @@ curl_setopt($ch, CURLOPT_HEADER, 0);
 $resp = curl_exec($ch);
 curl_close($ch);
 
+$result = json_decode($resp);
+
+$errc =  $result->errno;
+
+if($errc == 150) {
+
+ echo "BulkSMS Credit Exhausted";
+} else {
+
+echo 'Loading.. Please wait';
 $_SESSION['msgs'] = "Message sent successfully";
 echo '<script>window.location.href ="./parent"</script>';
+}
 }
 }
 
@@ -725,6 +764,7 @@ if (isset($_POST['msgr'])) {
   $sql = "SELECT * from staff GROUP BY `tel1`";
   $res = query($sql);
   while ($row = mysqli_fetch_array($res)) {
+   
   $x = $row['tel1'];
  
 $a = urlencode('greatnessabolade@outlook.com'); //Note: urlencodemust be added forusernameand
@@ -739,8 +779,19 @@ curl_setopt($ch, CURLOPT_HEADER, 0);
 $resp = curl_exec($ch);
 curl_close($ch);
 
+$result = json_decode($resp);
+
+$errc =  $result->errno;
+
+if($errc == 150) {
+
+ echo "BulkSMS Credit Exhausted";
+} else {
+
+ echo 'Loading.. Please wait';
 $_SESSION['msgs'] = "Message sent successfully";
 echo '<script>window.location.href ="./staffs"</script>';
+}
 }
 }
 
@@ -751,12 +802,17 @@ function birthday_alert() {
 $r = date("d");
 $s = date("m");
 
-$sql="SELECT * FROM students WHERE `Date`= '$r' AND `Month` = '$s'";
+$sql="SELECT * FROM students WHERE `Date`= '$r' AND `Month` = '$s' AND `bday` = '0' OR `bday` = ''";
 $result_set=query($sql);
 while($row= mysqli_fetch_array($result_set))
 {
+	$admno = $row['AdminID'];
 
-	//alert bday
+   //update table bday
+   $ssl = "UPDATE students SET `bday` = '1' WHERE `AdminID` = '$admno'";
+   $rrr = query($ssl);
+
+  //alert bday
   $c = "Happy Birthday Dear ".$row['SurName']. " ".$row['Middle Name']. " .Wishing you more years in good health and wisdom ahead.";
   $d = $_SESSION['cal']['blksmsname'];
 	
@@ -774,6 +830,18 @@ curl_setopt($ch, CURLOPT_HEADER, 0);
 $resp = curl_exec($ch);
 curl_close($ch);
 
+$result = json_decode($resp);
+
+$errc =  $result->errno;
+
+if($errc == 150) {
+
+ echo "BulkSMS Credit Exhausted";
+} else {
+
+
+}	
+
 }
 }
 
@@ -784,10 +852,16 @@ function staffbday() {
 	$r = date("d");
 	$s = date("m");
 	
-	$sql="SELECT * FROM staff WHERE `date`= '$r' AND `month` = '$s'";
+	$sql="SELECT * FROM staff WHERE `date`= '$r' AND `month` = '$s' AND `bday` = '0' OR `bday` = ''";
 	$result_set=query($sql);
 	while($row= mysqli_fetch_array($result_set))
 	{
+
+		$admno = $row['staffid'];
+
+   //update table bday
+   $ssl = "UPDATE staff SET `bday` = '1' WHERE `staffid` = '$admno'";
+   $rrr = query($ssl);
 	
 		//alert bday
 	  $c = "Happy Birthday Dear ".$row['surname']. " ".$row['firstname']. " .Wishing you more years in good health and wisdom ahead.";
@@ -806,8 +880,21 @@ function staffbday() {
 	curl_setopt($ch, CURLOPT_HEADER, 0);
 	$resp = curl_exec($ch);
 	curl_close($ch);
+
+	$result = json_decode($resp);
+
+$errc =  $result->errno;
+
+if($errc == 150) {
+
+ echo "BulkSMS Credit Exhausted";
+} else {
+
+
+}	
 	
 	}
+	
 		
 	}
 ?>

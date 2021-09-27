@@ -74,6 +74,7 @@
 
                     </div>
                     <div class="info">
+                        <a href="#"><?php echo $call['session']?> Session</a>
                         <a href="#" class="d-block">School Admin Portal</a>
                     </div>
                 </div>
@@ -111,10 +112,108 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./delstud" class="nav-link">
+                                    <a href="#" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Delete a Student</p>
                                     </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="./delstud?id=Creche" class="nav-link">
+                                                <i class="far fa-dot-circle nav-icon"></i>
+                                                <p>Creche</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="./delstud?id=KG 1" class="nav-link">
+                                                <i class="far fa-dot-circle nav-icon"></i>
+                                                <p>KG 1</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="./delstud?id=KG 2" class="nav-link">
+                                                <i class="far fa-dot-circle nav-icon"></i>
+                                                <p>KG 2</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="./delstud?id=Nursery 1" class="nav-link">
+                                                <i class="far fa-dot-circle nav-icon"></i>
+                                                <p>Nursery 1</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="./delstud?id=Nursery 2" class="nav-link">
+                                                <i class="far fa-dot-circle nav-icon"></i>
+                                                <p>Nursery 2</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="./delstud?id=Basic 1" class="nav-link">
+                                                <i class="far fa-dot-circle nav-icon"></i>
+                                                <p>Basic 1</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="./delstud?id=Basic 2" class="nav-link">
+                                                <i class="far fa-dot-circle nav-icon"></i>
+                                                <p>Basic 2</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="./delstud?id=Basic 3" class="nav-link">
+                                                <i class="far fa-dot-circle nav-icon"></i>
+                                                <p>Basic 3</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="./delstud?id=Basic 4" class="nav-link">
+                                                <i class="far fa-dot-circle nav-icon"></i>
+                                                <p>Basic 4</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="./delstud?id=Basic 5" class="nav-link">
+                                                <i class="far fa-dot-circle nav-icon"></i>
+                                                <p>Basic 5</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="./delstud?id=J.S.S 1" class="nav-link">
+                                                <i class="far fa-dot-circle nav-icon"></i>
+                                                <p>J.S.S 1</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="./delstud?id=J.S.S 2" class="nav-link">
+                                                <i class="far fa-dot-circle nav-icon"></i>
+                                                <p>J.S.S 2</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="./delstud?id=J.S.S 3" class="nav-link">
+                                                <i class="far fa-dot-circle nav-icon"></i>
+                                                <p>J.S.S 3</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="./delstud?id=S.S.S 1" class="nav-link">
+                                                <i class="far fa-dot-circle nav-icon"></i>
+                                                <p>S.S.S 1</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="./delstud?id=S.S.S 2" class="nav-link">
+                                                <i class="far fa-dot-circle nav-icon"></i>
+                                                <p>S.S.S 2</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="./delstud?id=S.S.S 3" class="nav-link">
+                                                <i class="far fa-dot-circle nav-icon"></i>
+                                                <p>S.S.S 3</p>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li class="nav-item">
                                     <a href="./enroll" class="nav-link">

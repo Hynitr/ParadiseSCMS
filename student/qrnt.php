@@ -13,11 +13,11 @@ if(!isset($_GET['id'])) {
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Paradise Model School | Secured</title>
+    <title>DotEightPlus | Secured</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Paradise Model School website">
-    <meta name="keywords" content="Paradise Model School">
+    <meta name="description" content="DotEightPlus website">
+    <meta name="keywords" content="DotEightPlus">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
     <link rel="icon" href="dist/img/logo.png" type="image/png" />
@@ -33,7 +33,7 @@ if(!isset($_GET['id'])) {
     <!-- Automatic element centering -->
     <div class="lockscreen-wrapper">
         <div class="lockscreen-logo">
-            <a href="https://paradisemodelschool.com.ng"><b>Paradise Model School</b></a>
+            <a href="https://doteightplus.com"><b>DotEightPlus</b></a>
         </div>
         <!-- User name -->
         <div class="lockscreen-name">Input Security Code</div>
@@ -42,7 +42,7 @@ if(!isset($_GET['id'])) {
         <div class="lockscreen-item">
             <!-- lockscreen image -->
             <div class="lockscreen-image">
-                <img src="dist/img/logo.png" alt="Paradise Model School">
+                <img src="dist/img/logo.png" alt="DotEightPlus">
             </div>
             <!-- /.lockscreen-image -->
 
@@ -68,7 +68,7 @@ if(!isset($_GET['id'])) {
 
         <div class="lockscreen-footer text-center">
             Copyright &copy; <?php echo date("Y"); ?> <b><a href="https://paradisemodelschool.com.ng"
-                    class="text-black">Paradise Model School</a></b><br>
+                    class="text-black">DotEightPlus</a></b><br>
             Developed by <a target="_blank"
                 href="https://www.google.com/search?client=opera&q=doteightplus&sourceid=opera&ie=UTF-8&oe=UTF-8"
                 class="text-black"> DotEightPlus</a>

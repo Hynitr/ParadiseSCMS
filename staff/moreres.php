@@ -1,6 +1,11 @@
+<script>
+function goBack() {
+    window.history.back()
+}
+</script>
 <?php
 include("functions/init.php");
-if(!isset($_GET['id']) && !isset($_GET['term']) && !isset($_GET['cls'])) {
+if(!isset($_GET['id']) && !isset($_GET['term']) && !isset($_GET['cls']) && !isset($_GET['ses'])) {
 
 echo "Error 404!";
 } else {
@@ -9,10 +14,17 @@ echo "Error 404!";
 $data =  $_GET['id'];
 $tms  =  $_GET['term'];
 $cls  =  $_GET['cls'];
+$ses  =  $_GET['ses'];
 
-$sql3 = "SELECT * FROM `motor` WHERE `admno` = '$data' AND `term` = '$tms'";
+$sql3 = "SELECT * FROM `motor` WHERE `admno` = '$data' AND `term` = '$tms' AND `ses` = '$ses'";
 $result_set3 = query($sql3);
 $row3 = mysqli_fetch_array($result_set3);
+
+if(row_count($result_set3) == 0){
+
+   echo  "No result uploaded for this user yet<br/><a href='#' onclick='goBack()';>Click here to go back</a>";
+
+} else {
 
 $sql4 = "SELECT sum(sn) AS altol FROM students WHERE `Class` = '$cls'";
 $res1 = query($sql4);
@@ -113,7 +125,7 @@ $qw2  = mysqli_fetch_array($res2);
             <th>Remark</th>
         </tr>
         <?php
-$sql= "SELECT * FROM `result` WHERE `admno` = '$data' AND `term` = '$tms'";
+$sql= "SELECT * FROM `result` WHERE `admno` = '$data' AND `term` = '$tms' AND `ses` = '$ses'";
 $result_set=query($sql);
 if(row_count($result_set) == "") {
             
@@ -121,9 +133,21 @@ if(row_count($result_set) == "") {
 while($row= mysqli_fetch_array($result_set))
  {
   $frd = $row['subject'];
-$sql2= "SELECT * FROM `score` WHERE `admno` = '$data' AND `subject` = '$frd'";
+$sql2= "SELECT * FROM `score` WHERE `admno` = '$data' AND `subject` = '$frd' AND `ses` = '$ses'";
 $result_set2=query($sql2);
 $row2= mysqli_fetch_array($result_set2);
+
+if($tms == "1st Term"){
+    $annual = $row2['fscore'];
+    } else {
+    if($tms == "2nd Term") {
+    $annual = ($row2['fscore'] + $row2['sndscore']) / 2;
+    }else {
+    if($tms == "3rd Term") {
+      $annual = ($row2['fscore'] + $row2['sndscore'] + $row2['tscore']) / 3;  
+    }
+    }
+    }
 ?>
         <tr>
             <td><?php echo ucwords($row['subject']); ?></td>
@@ -135,7 +159,7 @@ $row2= mysqli_fetch_array($result_set2);
             <td><?php echo $row2['fscore'] ?></td>
             <td><?php echo $row2['sndscore'] ?></td>
             <td><?php echo $row2['tscore'] ?></td>
-            <td><?php echo $row2['fscore'] + $row2['sndscore'] + $row2['tscore'] ?></td>
+            <td><?php echo $annual ?></td>
             <td><?php echo $row['position'] ?></td>
             <td><?php echo $row['grade'] ?></td>
             <td><?php echo $row['remark'] ?></td>
@@ -154,7 +178,7 @@ $row2= mysqli_fetch_array($result_set2);
             <th class="text-center" colspan="2">Academic Performance Summary</th>
         </tr>
         <?php
-$sql2 = "SELECT * FROM `motor` WHERE `admno` = '$data' AND `term` = '$tms'";
+$sql2 = "SELECT * FROM `motor` WHERE `admno` = '$data' AND `term` = '$tms' AND `ses` = '$ses'";
 $result_set2 = query($sql2);
 $row2 = mysqli_fetch_array($result_set2);
 if(row_count($result_set2) == "") {
@@ -218,12 +242,14 @@ if(row_count($result_set2) == "") {
     </table>
 
 </body>
+
 <script type="text/javascript">
 window.addEventListener("load", window.print());
 </script>
 
 </html>
 <?php
+}
 }
 }
 ?>

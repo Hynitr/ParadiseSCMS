@@ -40,19 +40,16 @@ include("functions/top.php");
                         <div class="form-group">
                             <label for="exampleInputPassword1">Select a Class .:</label>
                             <select name="ressbj" id="res" class="form-control">
-                                <option name="class" id="res"></option>
+                                <option name="class" id="res">Creche</option>
                                 <option name="class" id="res">KG 1</option>
                                 <option name="class" id="res">KG 2</option>
-                                <option name="class" id="res">KG 3</option>
                                 <option name="class" id="res">Nursery 1</option>
                                 <option name="class" id="res">Nursery 2</option>
-                                <option name="class" id="res">Nursery 3</option>
                                 <option name="class" id="res">Basic 1</option>
                                 <option name="class" id="res">Basic 2</option>
                                 <option name="class" id="res">Basic 3</option>
                                 <option name="class" id="res">Basic 4</option>
                                 <option name="class" id="res">Basic 5</option>
-                                <option name="class" id="res">Basic 6</option>
                                 <option name="class" id="res">J.S.S 1</option>
                                 <option name="class" id="res">J.S.S 2</option>
                                 <option name="class" id="res">J.S.S 3</option>
@@ -64,6 +61,24 @@ include("functions/top.php");
 
 
                         <div class="form-group">
+                            <label for="exampleInputPassword1">Select a Session .:</label>
+                            <select name="ses" id="ses" class="form-control">
+
+                                <?php
+$sl = "SELECT * FROM `sessions` ORDER BY `id` desc";
+$ww = query($sl);
+while ($rw = mysqli_fetch_array($ww)) {
+ ?>
+                                <option name="class" id="ses"><?php echo $rw['ses'] ?></option>
+                                <?php
+                                }
+                                ?>
+                            </select>
+                        </div>
+
+
+
+                        <div class="form-group">
                             <label for="exampleInputPassword1">Select a Term .:</label>
                             <select name="ressbj" id="term" class="form-control">
                                 <option name="class" id="term">1st Term</option>
@@ -71,6 +86,8 @@ include("functions/top.php");
                                 <option name="class" id="term">3rd Term</option>
                             </select>
                         </div>
+
+
 
                         <button type="button" class="btn btn-danger" id="view">View Result</button>
 
@@ -168,6 +185,7 @@ document.getElementById('view').addEventListener('click', getResult);
 function getResult() {
     var x = document.forms["printres"]["res"].value;
     var y = document.forms["printres"]["term"].value;
+    var z = document.forms["printres"]["ses"].value;
 
     if (x == null || x == "") {
 
@@ -176,7 +194,7 @@ function getResult() {
 
     var xhr = new XMLHttpRequest();
     $(toastr.error('Loading.. Please wait'));
-    xhr.open('GET', './classres?id=' + x + '&term=' + y, true);
+    xhr.open('GET', './classres?id=' + x + '&term=' + y + '&ses=' + z, true);
 
     xhr.onload = function() {
         if (xhr.status == 200) {

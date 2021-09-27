@@ -47,6 +47,11 @@ if(!isset($_SESSION['secured'])) {
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 		curl_setopt($ch, CURLOPT_HEADER, 0);
 		$resp = curl_exec($ch);
+
+		if($errc == 150) {
+
+			echo "BulkSMS Credit Exhausted";
+		} else {
 		
 		$sl = "UPDATE staff set `active` = '1' WHERE `qrid` = '$data'";
 		$re = mysqli_query($con, $sl);
@@ -122,7 +127,7 @@ if(!isset($_SESSION['secured'])) {
 
 
 		curl_close($ch);
-
+		}
 		}else {
 
 
@@ -138,6 +143,11 @@ if(!isset($_SESSION['secured'])) {
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 		curl_setopt($ch, CURLOPT_HEADER, 0);
 		$resp = curl_exec($ch);
+
+		if($errc == 150) {
+
+			echo "BulkSMS Credit Exhausted";
+		} else {
 		
 		$l = "UPDATE staff set `active` = '0' WHERE `qrid` = '$data'";
 		$e = mysqli_query($con, $l);
@@ -211,7 +221,8 @@ if(!isset($_SESSION['secured'])) {
 		$err = curl_error($ch);
 
 
-		curl_close($ch);	
+		curl_close($ch);
+		}	
 		}
 
 			/***end update**/

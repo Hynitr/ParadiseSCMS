@@ -150,13 +150,16 @@ if (!isset($_GET['id'])) {
                                     <select name="class" id="class" value="<?php echo $row['Class'] ?>"
                                         class="custom-select">
                                         <option name="class" id="class"><?php echo $row['Class'] ?></option>
-                                        <option name="class" id="class">Kindergarten</option>
-                                        <option name="class" id="class">Nursery</option>
+                                        <option name="class" id="class">Creche</option>
+                                        <option name="class" id="class">KG 1</option>
+                                        <option name="class" id="class">KG 2</option>
+                                        <option name="class" id="class">Nursery 1</option>
+                                        <option name="class" id="class">Nursery 2</option>
                                         <option name="class" id="class">Basic 1</option>
                                         <option name="class" id="class">Basic 2</option>
                                         <option name="class" id="class">Basic 3</option>
                                         <option name="class" id="class">Basic 4</option>
-                                        <option name="class" id="class">Basic 5-6</option>
+                                        <option name="class" id="class">Basic 5</option>
                                         <option name="class" id="class">J.S.S 1</option>
                                         <option name="class" id="class">J.S.S 2</option>
                                         <option name="class" id="class">J.S.S 3</option>
@@ -172,6 +175,7 @@ if (!isset($_GET['id'])) {
                                     <select name="dept" id="dept" value="<?php echo $row['Department'] ?>"
                                         class="custom-select">
                                         <option name="dept" id="dept"><?php echo $row['Department'] ?></option>
+                                        <option name="dept" id="dept">Null</option>
                                         <option name="dept" id="dept">Science</option>
                                         <option name="dept" id="dept">Arts and Humanities</option>
                                         <option name="dept" id="dept">Commercial</option>

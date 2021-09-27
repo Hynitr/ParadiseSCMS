@@ -53,11 +53,11 @@ include("functions/top.php");
                 <!-- ./col -->
                 <div class="col-md-3 col-sm-6 col-12">
                     <div class="info-box">
-                        <span class="info-box-icon bg-success"><i class="fas fa-credit-card"></i></span>
+                        <span class="info-box-icon bg-success"><i class="fas fa-calendar"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">Earnings</span>
-                            <span class="info-box-number">NGN </span>
+                            <span class="info-box-text"><?php echo $call['session']?></span>
+                            <span class="info-box-number"><a href="./updtses">Update Session</a> </span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>

@@ -1,27 +1,19 @@
 <?php include("functions/top.php"); ?>
 <?php
-if(!isset($_GET['id']) && !isset($_GET['cls']) && !isset($_GET['term'])) {
+if(!isset($_GET['id']) && !isset($_GET['cls']) && !isset($_GET['term']) && !isset($_GET['ses'])) {
   header("location: ../opps");
 }
 
 $data = $_GET['id'];
 $cls  = $_GET['cls'];
 $term = $_GET['term'];
+$ses  = $_GET['ses'];
 
 
 //get student name from admission no.
 $sl = "SELECT * FROM students WHERE `AdminID` = '$data'";
 $res = query("$sl");
 $rower = mysqli_fetch_array($res);
-
-
-//get total number of students
-$dql = "SELECT sum(sn) AS tot FROM students WHERE `Class` = '$cls'";
-$ress = query($dql);
-$wsa = mysqli_fetch_array($ress);
-
-$hrt = $wsa['tot'];
-
 
 ?>
 
@@ -46,7 +38,7 @@ $hrt = $wsa['tot'];
     <!-- /.content-header -->
 
     <?php
- $sql= "SELECT * FROM `result` WHERE `admno` = '$data' AND `term` = '$term'";
+ $sql= "SELECT * FROM `result` WHERE `admno` = '$data' AND `term` = '$term' AND `ses` = '$ses'";
  $result_set=query($sql);
  while($row= mysqli_fetch_array($result_set))
  {
@@ -100,7 +92,7 @@ $hrt = $wsa['tot'];
                         </thead>
                         <tbody>
                             <?php
- $sql= "SELECT * FROM `result` WHERE `admno` = '$data' AND `term` = '$term'";
+ $sql= "SELECT * FROM `result` WHERE `admno` = '$data' AND `term` = '$term' AND `ses` = '$ses'";
  $result_set=query($sql);
   while($row= mysqli_fetch_array($result_set))
  {
@@ -108,7 +100,7 @@ $hrt = $wsa['tot'];
                             <tr class="text-center">
                                 <td><?php echo $row['subject']; 
                       echo '
-                      <a style="color: red;" href="./edit?id='.$data.'&sbj='.$row['subject'].'&tm='.$term.'&cls='.$cls.'"><br/>Edit</a>';
+                      <a style="color: red;" href="./edit?id='.$data.'&sbj='.$row['subject'].'&tm='.$term.'&cls='.$cls.'&ses='.$ses.'"><br/>Edit</a>';
                       ?>
                                 </td>
                                 <td><?php echo $row['ass'] ?></td>
@@ -151,7 +143,7 @@ $hrt = $wsa['tot'];
                 <div class="card-header">
                     <h3 class="card-title">Upload Result for <strong>
                             <?php echo $rower['SurName']." ".$rower['Middle Name']." ".$rower['Last Name'] ?></strong> -
-                        <?php echo $term ?> </h3>
+                        <?php echo $term ?> (<?php echo $ses ?> session) </h3>
                     <div class="card-tools">
                         <button type="button" data-toggle="tooltip" title="Minimize" class="btn btn-tool"
                             data-card-widget="collapse"><i class="fas fa-minus"></i>
@@ -171,32 +163,32 @@ $hrt = $wsa['tot'];
                             <div class="row">
                                 <div class="form-group col-md-2">
                                     <label for="exampleInputEmail1">Test(10) .:</label>
-                                    <input type="number" name="date" id="test" value="<?php echo $row['test']; ?>"
-                                        placeholder="Test(10)" class="form-control">
+                                    <input type="number" name="date" id="test" placeholder="Test(10)"
+                                        class="form-control">
                                 </div>
                                 <!-- /.input group -->
-                                <div class="form-group col-md-2">
+                                <div class="form-group col-md-3">
                                     <label for="exampleInputEmail1">Assignment(10).:</label>
-                                    <input type="number" name="month" id="ass" value="<?php echo $row['ass']; ?>"
-                                        placeholder="Assignment(10)" class="form-control">
+                                    <input type="number" name="month" id="ass" placeholder="Assignment(10)"
+                                        class="form-control">
                                 </div>
                                 <!-- /.input group -->
-                                <div class="form-group col-md-2">
+                                <div class="form-group col-md-3">
                                     <label for="exampleInputEmail1">Class Exercise(10).:</label>
-                                    <input type="number" name="year" id="exc" value="<?php echo $row['classex']; ?>"
-                                        placeholder="Exercise(10)" class="form-control">
+                                    <input type="number" name="year" id="exc" placeholder="Exercise(10)"
+                                        class="form-control">
                                 </div>
                                 <!-- /.input group -->
                                 <div class="form-group col-md-2">
                                     <label for="exampleInputEmail1">Exam(70) .:</label>
-                                    <input type="number" name="year" id="exam" value="<?php echo $row['test']; ?>"
-                                        placeholder="Exam(70)" class="form-control">
+                                    <input type="number" name="year" id="exam" placeholder="Exam(70)"
+                                        class="form-control">
                                 </div>
                                 <!-- /.input group -->
                                 <div class="form-group col-md-2">
                                     <label for="exampleInputEmail1">Position in Class .:</label>
-                                    <input type="text" name="position" id="position" value="<?php echo $row['test']; ?>"
-                                        placeholder="1st, 2nd, 3rd e.t.c" class="form-control">
+                                    <input type="text" name="year" id="position" placeholder="1st, 2nd, 3rd e.t.c"
+                                        class="form-control">
                                     <!--<select id="position" class="form-control">
                                         <option id="position">1st</option>
                                         <option id="position">2nd</option>
@@ -231,6 +223,7 @@ $hrt = $wsa['tot'];
                                 id="name" hidden>
                             <input type="text" class="form-control" value="<?php echo $cls; ?>" id="cla" hidden>
                             <input type="text" class="form-control" value="<?php echo $term; ?>" id="term" hidden>
+                            <input type="text" class="form-control" value="<?php echo $ses; ?>" id="ses" hidden>
                         </div>
 
                         <p class="text-danger">Make sure you recheck all details typed in before uploading</p>
@@ -286,6 +279,7 @@ $hrt = $wsa['tot'];
                     <input type="text" value="<?php echo $data; ?>" id="subb" hidden>
                     <input type="text" value="<?php echo $term; ?>" id="trm" hidden>
                     <input type="text" value="<?php echo $cls; ?>" id="ccs" hidden>
+                    <input type="text" value="<?php echo $ses; ?>" id="ses" hidden>
                 </div>
             </div>
             <div class="modal-footer justify-content-between">
@@ -332,7 +326,7 @@ $hrt = $wsa['tot'];
                             <select id="position" class="form-control">
                                 <?php
                  
- $sql= "SELECT * FROM `result` WHERE `admno` = '$data' AND `term` = '$term'";;
+ $sql= "SELECT * FROM `result` WHERE `admno` = '$data' AND `term` = '$term' AND `ses` = '$ses'";;
  $result_set=query($sql);
  while($row= mysqli_fetch_array($result_set))
  {
@@ -346,6 +340,7 @@ $hrt = $wsa['tot'];
                             <input type="text" value="<?php echo $data; ?>" id="subbr" hidden>
                             <input type="text" value="<?php echo $term; ?>" id="trmr" hidden>
                             <input type="text" value="<?php echo $cls; ?>" id="ccsr" hidden>
+                            <input type="text" value="<?php echo $ses; ?>" id="ses" hidden>
                         </div>
                     </form>
                 </div>

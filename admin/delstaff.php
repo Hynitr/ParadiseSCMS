@@ -36,9 +36,23 @@ include("functions/top.php");
 
                                 <div class="form-group">
                                     <label>Staff ID.:</label>
+                                    <select name="delstaff" id="delstaff" class="custom-select">
+                                        <?php
+$sql = "SELECT * FROM staff";
+$res = query($sql);
+while($row=mysqli_fetch_array($res)) {
+?>
 
-                                    <input type="text" placeholder="Input Staff ID" name="delstaff" id="delstaff"
-                                        class="form-control" required>
+                                        <optgroup label="<?php echo $row['surname']." ".$row['firstname'] ?>">
+                                            <option name="delstaff" id="delstaff"><?php echo $row['staffid'] ?></option>
+                                        </optgroup>
+
+
+                                        <?php
+           }
+           ?>
+                                    </select>
+
 
                                 </div>
                                 <!-- /.input group -->

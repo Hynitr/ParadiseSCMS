@@ -6,14 +6,17 @@ if (!isset($_SESSION['code'])) {
 
 }
 
- $sql ="SELECT * FROM students WHERE `AdminID` = '".$_SESSION["code"]."'";
+    $sql ="SELECT * FROM students WHERE `AdminID` = '".$_SESSION["code"]."'";
     $result = query($sql);
+    
     if(row_count($result) >= 1) {
     $row = mysqli_fetch_array($result);
+    
     $data = $row['AdminID'];
     $d = md5($data);
     $_POST['id'] = $data;
     $pass = str_replace('/', '', $data);
+    
     $fname = "$pass.png";
 
 /*
@@ -69,7 +72,7 @@ if (!isset($_SESSION['code'])) {
     } else {    
     
         //default data
-        QRcode::png($call['stud'].'/qrnt?id='.$d.'', $filename, $errorCorrectionLevel, $matrixPointSize, 2);    
+        QRcode::png($call['stud'].'qrnt?id='.$d.'', $filename, $errorCorrectionLevel, $matrixPointSize, 2);    
         
     }    
         
@@ -77,8 +80,9 @@ if (!isset($_SESSION['code'])) {
     echo '<img src="'.$PNG_WEB_DIR.basename($filename).'" /><hr/>';  
     
     }  
+    
      $sqll = "UPDATE students SET `qrcode` = '$fname' WHERE `AdminID` = '".$_SESSION["code"]."'";
      $re   = query($sqll);
 
-     header("location: .././atcard-print");
+header("location: .././atcard-print");
 ?>

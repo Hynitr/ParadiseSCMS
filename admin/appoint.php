@@ -153,6 +153,7 @@ include("functions/top.php");
                                         <option name="class" id="lass">Degree</option>
                                         <option name="class" id="lass">HND</option>
                                         <option name="class" id="lass">OND</option>
+                                        <option name="class" id="lass">NCE/option>
                                         <option name="class" id="lass">SSCE</option>
                                     </select>
                                 </div>
@@ -182,19 +183,16 @@ include("functions/top.php");
                                 <div class="form-group">
                                     <label>Staff Class.:</label>
                                     <select name="class" id="class" class="custom-select">
-                                        <option name="class" id="class">Null</option>
+                                        <option name="class" id="class">Creche</option>
                                         <option name="class" id="class">KG 1</option>
                                         <option name="class" id="class">KG 2</option>
-                                        <option name="class" id="class">KG 3</option>
                                         <option name="class" id="class">Nursery 1</option>
                                         <option name="class" id="class">Nursery 2</option>
-                                        <option name="class" id="class">Nursery 3</option>
                                         <option name="class" id="class">Basic 1</option>
                                         <option name="class" id="class">Basic 2</option>
                                         <option name="class" id="class">Basic 3</option>
                                         <option name="class" id="class">Basic 4</option>
                                         <option name="class" id="class">Basic 5</option>
-                                        <option name="class" id="class">Basic 6</option>
                                         <option name="class" id="class">J.S.S 1</option>
                                         <option name="class" id="class">J.S.S 2</option>
                                         <option name="class" id="class">J.S.S 3</option>
