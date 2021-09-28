@@ -1,7 +1,7 @@
 <?php
 date_default_timezone_set('Africa/Lagos');
 session_start();
-$con =  mysqli_connect("localhost","paradi12_me","securemelikekilode","paradi12_paradise_school_cms");
+$con =  mysqli_connect("localhost","paradi12_users","securemelikekilode","paradi12_scms");
 
 if(!isset($_SESSION['secured'])) {
 	header("location: ./invalid");
