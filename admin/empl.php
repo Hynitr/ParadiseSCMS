@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <link rel="icon" href="dist/img/favicon2.ico" type="image/ico" />
     <title>Employment Letter</title>
 </head>
+
 </html>
 <?php
 require ("functions/init.php");
@@ -590,7 +592,7 @@ $file = "$add.pdf";
 $filename = "upload/employ/$file";
 $pdf->Output($filename, 'F');
 
-$sqll = "UPDATE staff SET `admletter` = '$file' WHERE `staffid` = '".$_SESSION["staffid"]."'";
+$sqll = "UPDATE staff SET `admletter` = '$file' WHERE `staffid` = '".$_GET["id"]."'";
 $re   = query($sqll);
 }
 ?>
