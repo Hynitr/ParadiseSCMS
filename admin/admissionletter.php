@@ -126,7 +126,7 @@ $re   = query($sqll);
     if (!isset($_GET['id'])) {
        
        redirect("./enroll");
-    }
+    } else{
 
 
     require('fpdf.php');
@@ -238,5 +238,6 @@ $pdf->Output($filename, 'F');
 
 $sqll = "UPDATE students SET `admletter` = '$file' WHERE `AdminID` = '".$_SESSION["code"]."'";
 $re   = query($sqll);
+}
 }
 ?>
