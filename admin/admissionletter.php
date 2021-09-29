@@ -128,7 +128,7 @@ $re   = query($sqll);
        redirect("./enroll");
     } else{
 
-
+        $data = $_GET['id'];
     require('fpdf.php');
 
 class PDF extends FPDF
@@ -236,7 +236,7 @@ $file = "$add.pdf";
 $filename = "upload/admissionletter/$file";
 $pdf->Output($filename, 'F');
 
-$sqll = "UPDATE students SET `admletter` = '$file' WHERE `AdminID` = '".$_SESSION["code"]."'";
+$sqll = "UPDATE students SET `admletter` = '$file' WHERE `AdminID` = '$data'";
 $re   = query($sqll);
 }
 }
