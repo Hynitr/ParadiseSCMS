@@ -394,7 +394,6 @@ if($tms == "1st Term"){
 
         echo '
         <td>'.$annual.'</td>
-        <td>'.round($clavg,0).'</td>
         <td>'.$row['position'].'</td>
         <td>'.$row['grade'].'</td>
         <td>'.$row['remark'].'</td>
