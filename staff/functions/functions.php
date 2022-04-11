@@ -359,7 +359,7 @@ if(isset($_SESSION['upupl'])) {
 
 
 //----------------update upload first term result subjects ----------///
-if (isset($_POST['stsbj']) && isset($_POST['test']) && isset($_POST['ass']) && isset($_POST['exc']) && isset($_POST['exam']) && isset($_POST['position']) && isset($_POST['name']) && isset($_POST['admis']) && isset($_POST['cla']) && isset($_POST['tms']) && isset($_POST['ses'])) {
+if (isset($_POST['stsbj']) && isset($_POST['test']) && isset($_POST['ass']) && isset($_POST['exc']) && isset($_POST['exam']) && isset($_POST['position']) && isset($_POST['name']) && isset($_POST['admis']) && isset($_POST['cla']) && isset($_POST['tms']) && isset($_POST['ses']) && isset($_POST['reltdet'])) {
 	
 
 	$stbj 		= clean($_POST['stsbj']);
@@ -373,7 +373,7 @@ if (isset($_POST['stsbj']) && isset($_POST['test']) && isset($_POST['ass']) && i
 	$cla 		= clean($_POST['cla']);
 	$term 		= clean($_POST['tms']);
 	$ses 		= clean($_POST['ses']);
-
+	$reltdet    = clean($_POST['reltdet']);
 	
 	$total      = $test + $ass + $exc + $exam;
 
@@ -441,10 +441,10 @@ if (isset($_POST['stsbj']) && isset($_POST['test']) && isset($_POST['ass']) && i
 	
 
 
-$sql2 = "UPDATE result SET `test` = '$test', `ass` = '$ass', `classex` = '$exc', `exam` = '$exam', `total` = '$total', `position` = '$position', `grade` = '$grade', `remark` = '$remark', `term` = '$term' WHERE `class` = '$cla' AND `admno` = '$admis' AND `name` = '$name' AND `subject` = '$stbj' AND `ses` = '$ses'";
-$result = query($sql2);
+	$sql2 = "UPDATE result SET `test` = '$test', `ass` = '$ass', `classex` = '$exc', `exam` = '$exam', `total` = '$total', `position` = '$position', `grade` = '$grade', `remark` = '$remark', `term` = '$term', `subject` = '$stbj' WHERE `id` = '$reltdet'";
+	$result = query($sql2);
 
-if ($term == "1st Term") {
+	if ($term == "1st Term") {
 		
 		$fscore =  $total;
 		$sndscore = 0;
@@ -520,6 +520,9 @@ if (isset($_POST['admr']) && isset($_POST['trmr']) && isset($_POST['ccsr']) && i
 
 	$sql = "DELETE FROM result WHERE `admno` = '$adm' AND `term` = '$trm' AND `class` = '$ccs' AND `subject` = '$sbjj' AND `ses` = '$ses'";
 	$res = query($sql);
+
+	$ssl = "DELETE FROM score WHERE `admno` = '$adm' AND `term` = '$trm' AND `class` = '$ccs' AND `subject` = '$sbjj' AND `ses` = '$ses'";
+	$qws = query($ssl);
 
 	$_SESSION['del'] = "Subject Result deleted sucessfully";
 

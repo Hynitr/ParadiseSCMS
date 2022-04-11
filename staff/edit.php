@@ -77,7 +77,7 @@ $hrt = $wsa['tot'];
                         <div class="form-group">
                             <label for="exampleInputEmail1">Input Subject .:</label>
                             <input type="text" value="<?php echo $sbj; ?>" class="form-control" id="stsbj"
-                                placeholder="Mathematics, English, Chemistry" disabled>
+                                placeholder="Mathematics, English, Chemistry">
                         </div>
 
 
@@ -146,6 +146,7 @@ $hrt = $wsa['tot'];
                             <input type="text" class="form-control" value="<?php echo $cls; ?>" id="cla" hidden>
                             <input type="text" class="form-control" value="<?php echo $term; ?>" id="term" hidden>
                             <input type="text" class="form-control" value="<?php echo $ses; ?>" id="ses" hidden>
+                            <input type="text" id="reltdet" value="<?php echo $row['id'] ?>" hidden>
                         </div>
 
                         <p class="text-danger">Make sure you recheck all details typed in before uploading</p>

@@ -85,6 +85,7 @@ $rower = mysqli_fetch_array($res);
                                 <th>Test </th>
                                 <th>Exam</th>
                                 <th>Total</th>
+                                <th>Position</th>
                                 <th>Grade</th>
                                 <th>Remark</th>
 
@@ -108,6 +109,7 @@ $rower = mysqli_fetch_array($res);
                                 <td><?php echo $row['test'] ?></td>
                                 <td><?php echo $row['exam'] ?></td>
                                 <td><?php echo $row['total'] ?></td>
+                                <td><?php echo $row['position'] ?></td>
                                 <td><?php echo $row['grade'] ?></td>
                                 <td><?php echo $row['remark'] ?></td>
 
@@ -323,7 +325,7 @@ $rower = mysqli_fetch_array($res);
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Subject Uploaded</span>
                             </div>
-                            <select id="position" class="form-control">
+                            <select id="sbjjr" class="form-control">
                                 <?php
                  
  $sql= "SELECT * FROM `result` WHERE `admno` = '$data' AND `term` = '$term' AND `ses` = '$ses'";;
