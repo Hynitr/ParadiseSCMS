@@ -85,7 +85,6 @@ $rower = mysqli_fetch_array($res);
                                 <th>Test </th>
                                 <th>Exam</th>
                                 <th>Total</th>
-                                <th>Position</th>
                                 <th>Grade</th>
                                 <th>Remark</th>
 
@@ -109,7 +108,6 @@ $rower = mysqli_fetch_array($res);
                                 <td><?php echo $row['test'] ?></td>
                                 <td><?php echo $row['exam'] ?></td>
                                 <td><?php echo $row['total'] ?></td>
-                                <td><?php echo $row['position'] ?></td>
                                 <td><?php echo $row['grade'] ?></td>
                                 <td><?php echo $row['remark'] ?></td>
 
@@ -164,8 +162,8 @@ $rower = mysqli_fetch_array($res);
                         <div class="form-group">
                             <div class="row">
                                 <div class="form-group col-md-2">
-                                    <label for="exampleInputEmail1">Test(10) .:</label>
-                                    <input type="number" name="date" id="test" placeholder="Test(10)"
+                                    <label for="exampleInputEmail1">Test(20) .:</label>
+                                    <input type="number" name="date" id="test" placeholder="Test(20)"
                                         class="form-control">
                                 </div>
                                 <!-- /.input group -->
