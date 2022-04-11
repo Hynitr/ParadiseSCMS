@@ -32,8 +32,8 @@ $(document).ready(function () {
       if (test == null || test == "") {
         $(toastr.error("Kindly input test score"));
       } else {
-        if (test > 10) {
-          $(toastr.error("Test score can`t be greater than 10"));
+        if (test > 20) {
+          $(toastr.error("Test score can`t be greater than 20"));
         } else {
           if (ass == null || ass == "") {
             $(toastr.error("Kindly input assignment score"));
@@ -92,6 +92,7 @@ $(document).ready(function () {
     }
   });
 
+
   //-------------reset results------------------//
   $("#reseted").click(function () {
     var adm = $("#subb").val();
@@ -135,7 +136,6 @@ $(document).ready(function () {
     var cla = $("#cla").val();
     var tms = $("#term").val();
     var ses = $("#ses").val();
-    var reltdet = $("#reltdet").val();
 
     if (stsbj == null || stsbj == "") {
       $(toastr.error("Subject can`t be empty"));
@@ -143,8 +143,8 @@ $(document).ready(function () {
       if (test == null || test == "") {
         $(toastr.error("Kindly input test score"));
       } else {
-        if (test > 10) {
-          $(toastr.error("Test score can`t be greater than 10"));
+        if (test > 20) {
+          $(toastr.error("Test score can`t be greater than 20"));
         } else {
           if (ass == null || ass == "") {
             $(toastr.error("Kindly input assignment score"));
@@ -186,7 +186,6 @@ $(document).ready(function () {
                             cla: cla,
                             tms: tms,
                             ses: ses,
-                            reltdet: reltdet,
                           },
                           success: function (data) {
                             $(toastr.error(data)).html(data);
