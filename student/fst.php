@@ -57,6 +57,27 @@ while ($rw = mysqli_fetch_array($ww)) {
                                 ?>
                                     </select>
                                 </div>
+                               <label>Select Class.:</label>
+                                <select name="cls" id="cls" class="custom-select">
+                                    <option name="cls" id="cls">Creche</option>
+                                    <option name="cls" id="cls">KG 1</option>
+                                    <option name="cls" id="cls">KG 2</option>
+                                    <option name="cls" id="cls">Nursery 1</option>
+                                    <option name="cls" id="cls">Nursery 2</option>
+                                    <option name="cls" id="cls">Basic 1</option>
+                                    <option name="cls" id="cls">Basic 2</option>
+                                    <option name="cls" id="cls">Basic 3</option>
+                                    <option name="cls" id="cls">Basic 4</option>
+                                    <option name="cls" id="cls">Basic 5</option>
+                                    <option name="cls" id="cls">J.S.S 1</option>
+                                    <option name="cls" id="cls">J.S.S 2</option>
+                                    <option name="cls" id="cls">J.S.S 3</option>
+                                    <option name="cls" id="cls">S.S.S 1</option>
+                                    <option name="cls" id="cls">S.S.S 2</option>
+                                    <option name="cls" id="cls">S.S.S 3</option>
+                                </select>
+                                <br /><br />
+
                                 <label>Select Term.:</label>
                                 <select name="tmms" id="tmms" class="custom-select">
                                     <option name="tmms" id="tmms">1st Term</option>
