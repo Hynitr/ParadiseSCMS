@@ -86,8 +86,7 @@ while ($rw = mysqli_fetch_array($ww)) {
                                 </select>
                                 <br /><br />
                                 <!-- /.input group -->
-                            </div>
-                            <input type="text" id="cls" value="<?php echo $row['Class'] ?>" hidden>
+                            </div
                             <input type="text" id="admn" value="<?php echo $row['AdminID'] ?>" hidden>
                             <div class="card-footer">
                                 <button type="button" name="submit" id="chk" class="btn btn-primary">Check
