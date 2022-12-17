@@ -124,7 +124,7 @@ include("functions/top.php");
                                             <span class="input-group-text"><i class="fas fa-graduation-cap"></i></span>
                                         </div>
                                         <input type="text" name="schlst" id="schlst"
-                                            placeholder="Input last school attended" class="form-control" required>
+                                            placeholder="Input last school attended" class="form-control">
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -173,7 +173,7 @@ include("functions/top.php");
                                             <span class="input-group-text"><i class="fas fa-users"></i></span>
                                         </div>
                                         <input type="text" name="parent" id="parent"
-                                            placeholder="Input Name of Parent/Guardian" class="form-control" required>
+                                            placeholder="Input Name of Parent/Guardian" class="form-control">
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -198,7 +198,7 @@ include("functions/top.php");
                                         </div>
                                         <input name="occupation" id="occupation" type="text"
                                             placeholder="Input Parent/Guardian Occupation" class="form-control"
-                                            required>
+                                            >
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -213,7 +213,7 @@ include("functions/top.php");
                                         </div>
                                         <input type="text" name="add" id="add"
                                             placeholder="Input Parent/Guardian Parent/Guardian Residential Address"
-                                            class="form-control" required>
+                                            class="form-control">
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -229,7 +229,7 @@ include("functions/top.php");
                                             </div>
                                             <input type="number" name="dnum" id="dnum" class="form-control"
                                                 data-inputmask='"mask": "99999999999"' data-mask
-                                                placeholder="Input Father`s Number" required>
+                                                placeholder="Input Father`s Number" >
                                         </div>
                                         <div class="input-group col-md-6">
                                             <div class="input-group-prepend">
@@ -260,7 +260,7 @@ include("functions/top.php");
                                                 <span class="input-group-text">NGN</span>
                                             </div>
                                             <input type="number" name="rpword" id="rpword" class="form-control"
-                                                placeholder="Cost of Books" required>
+                                                placeholder="Cost of Books">
                                         </div>
                                     </div>
                                     <!-- /.input group -->
@@ -277,14 +277,14 @@ include("functions/top.php");
                                                 <span class="input-group-text">NGN</span>
                                             </div>
                                             <input type="number" name="acf" id="acf" class="form-control"
-                                                placeholder="Input Acceptance Fee" required>
+                                                placeholder="Input Acceptance Fee">
                                         </div>
                                         <div class="input-group col-md-6">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">NGN</span>
                                             </div>
                                             <input type="number" name="schf" id="schf" class="form-control"
-                                                placeholder="Input School Fees" required>
+                                                placeholder="Input School Fees">
                                         </div>
                                     </div>
                                     <!-- /.input group -->
