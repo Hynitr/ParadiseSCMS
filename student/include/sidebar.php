@@ -61,7 +61,7 @@
             <a href="<?php echo $call['website'] ?>" class="brand-link">
                 <img src="dist/img/logo.png" alt="user profile picture" class="brand-image img-circle elevation-3"
                     style="opacity: .8">
-                <span class="brand-text font-weight-light">Daglore Student Portal</span>
+                <span class="brand-text font-weight-light">Paradise Student Portal</span>
             </a>
 
             <!-- Sidebar -->
